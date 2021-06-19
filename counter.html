@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Counter</title>
+	<link rel="stylesheet" href="../bootstrap/bootstrap/css/bootstrap.min.css">
+	<script src="../bootstrap/bootstrap/js/bootstrap.min.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		body{
+			background-color: #3173ff;
+		}
+		.container{
+			height: 100vh;
+		}
+		.btn{
+			background-color: #31ffbd;
+		}
+		.counter{
+			font-size: 60px;
+			color: #fff;
+		}
+		.main{
+			background-color: #ffbd31;
+			height: 55vh;
+			width: 20vw;
+			border-radius: 5px;
+			box-shadow: 5px 5px 20px 0 #0041ca;
+		}
+		.h2{
+			color: #fff;
+			position: relative;
+			top: -2%;
+		}
+		.reset-head{
+			position: relative;
+			top: 20%;
+		}
+		.reset{
+			font-size: 20px;
+			color: #fff;
+		}
+		@media only screen and(max-width: 1000px){
+			.main{
+				width: 30vw;
+			}
+		}
+		@media only screen and(max-width: 800px){
+			.main{
+				width: 40vw;
+			}
+		}
+		@media only screen and(max-width: 576px){
+			.main{
+				width: 250px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container d-flex justify-content-center align-items-center flex-column">
+		<div class="h2">Javascript Counter</div>
+		<div class="main d-flex justify-content-center flex-column">
+			<div class="d-flex align-items-center justify-content-around">
+				<div class="sub-head">
+					<button type="button" class="btn sub"><img src="images/sub.png" height="25"></button>
+				</div>
+				<div class="counter">0</div>
+				<div class="add-head">
+					<button type="button" class="btn add"><img src="images/add.png" height="25"></button>
+				</div>
+			</div>
+			<div class="reset-head align-self-center">
+				<button type="button" class="btn reset">Reset</button>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		document.querySelector(".add").addEventListener("click", function(){
+			count += 1;
+			localStorage.setItem("count_1", count);
+			document.querySelector(".counter").innerHTML = count;
+		});
+		document.querySelector(".sub").addEventListener("click", function(){
+			if (count > 0) {
+				count -= 1;
+				localStorage.setItem("count_1", count);
+				document.querySelector(".counter").innerHTML = count;
+			}
+		});
+		document.querySelector(".reset").addEventListener("click", function(){
+			count = 0;
+			localStorage.setItem("count_1", count);
+			document.querySelector(".counter").innerHTML = count;
+		});
+		
+		if (!localStorage.getItem("count_1")) {
+			var count = 0;
+		}
+		else{
+			var count = Number(localStorage.getItem("count_1"));
+			document.querySelector(".counter").innerHTML = localStorage.getItem("count_1");
+		}
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
